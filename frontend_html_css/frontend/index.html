@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/icon.png" />
+    <title>Alerte Animale</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
+
+  <body class="home-page">
+    <header class="top-nav">
+      <a href="index.html">
+        <img class="header-icon" src="./images/icon2.png" alt="FePa" />
+      </a>
+
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu" id="nav-menu">
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="rssFeed.html">RSS Feed</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Rapoarte</a>
+          <div class="dropdown-content">
+            <a href="report.html">Raporteaza un Animal</a>
+            <a href="view-reports.html">Vizualizeaza Rapoarte</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown manage-dropdown" style="display: none">
+          <a href="#" class="dropbtn">Manage</a>
+          <div class="dropdown-content">
+            <a href="manageUsers.html">Manage Users</a>
+            <a href="manageReports.html">Manage Reports</a>
+          </div>
+        </li>
+        <li class="user-authentication">
+          <span id="auth-placeholder">Autentificare</span>
+          <div id="login-dropdown-content" class="login-dropdown-content">
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Sign Up</a>
+            <a id="logout" href="#" style="display: none">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <main>
+      <div class="home-container">
+        <section class="stylish-section section-panel">
+          <div class="section-description">
+            <h1>
+              O comunitate mai sigură, un viitor pentru toți locuitorii ei - fie
+              ei cu două, patru picioare sau aripi!
+            </h1>
+            <p>
+              Bine ați venit pe platforma noastră, unde fiecare animal fără
+              stăpân devine o prioritate.Misiunea noastră este de a raporta,
+              monitoriza și a găsi cele mai bune soluții pentru bunăstarea
+              acestor animale. Împreună, construim un mediu mai sigur și mai
+              prietenos pentru toate ființele care ne înconjoară
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <section class="reported-animals-section">
+        <h1>Animale Recent Raportate</h1>
+        <div class="carousel-container">
+          <div class="carousel" id="carousel-content">
+            <!-- Dynamic content will be inserted here -->
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section" id="how-it-works">
+        <h1>
+          Această platformă este proiectată să fie cât se poate de simplă și
+          intuitivă, urmând câțiva pași esențiali:
+        </h1>
+
+        <ul class="how-it-works">
+          <li>
+            <strong>Identifică și raportează:</strong> Dacă întâlnești un animal
+            fără stăpân sau în nevoie, accesează aplicația și folosește
+            formularul de raportare pentru a ne trimite informațiile. Poți
+            încărca fotografii, descrie comportamentul animalului și specifica
+            locația exactă.
+          </li>
+          <li>
+            <strong>Etichetează corespunzător:</strong> Folosește tag-urile
+            disponibile pentru a clasifica situația animalului - de exemplu,
+            "fără adăpost", "pericol de turbare" sau "comportament violent".
+            Aceasta ne ajută să înțelegem rapid nevoile și urgența situației.
+          </li>
+          <li>
+            <strong>Urmărește evoluția:</strong> După raportare, cazul va fi
+            vizibil în fluxul de știri RSS al platformei, unde alți utilizatori
+            și autoritățile pot fi informați. Poți verifica statusul cazului tău
+            oricând pentru a vedea progresul.
+          </li>
+          <li>
+            <strong>Contribuie cu informații suplimentare:</strong> Dacă ai
+            informații noi sau vrei să oferi ajutor suplimentar, poți actualiza
+            raportul inițial cu detalii noi.
+          </li>
+          <li>
+            <strong>Rămâi informat:</strong> Platforma oferă statistici
+            detaliate și actualizări periodice despre situația animalelor
+            raportate, îmbunătățiri aduse și povești de succes. Aceste
+            informații sunt disponibile în format HTML, CSV și PDF pentru o
+            analiză ușoară.
+          </li>
+        </ul>
+
+        <p>
+          Prin urmarea acestor pași simpli, contribuiești activ la bunăstarea
+          animalelor din comunitate și ajuti la crearea unui mediu mai sigur
+          pentru toți.
+        </p>
+      </section>
+
+      <section class="last-report" id="last-report">
+        <div class="report-content">
+          <img
+            src="./images/incident1.jpg"
+            alt="Animal Image"
+            class="desktop-image"
+          />
+          <img
+            src="./images/incident2.png"
+            alt="Animal Image"
+            class="mobile-image"
+          />
+        </div>
+        <div class="report-text">
+          <h2>Ultimul Raport</h2>
+          <button
+            onclick="window.location.href='view-reports.html';"
+            class="download-button"
+          >
+            Descarcă ultimul raport
+          </button>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <h1>Despre noi</h1>
+        <h3>Misiunea noastră:</h3>
+        <p>
+          Suntem o echipă dedicată bunăstării animalelor și siguranței
+          comunităților noastre. Misiunea noastră este de a oferi o punte de
+          legătură între animalele fără stăpân, comunitate și autoritățile
+          locale, facilitând raportarea rapidă și eficientă a cazurilor și
+          găsirea celor mai bune soluții pentru fiecare situație.
+        </p>
+
+        <h3>Viziunea noastră:</h3>
+        <p>
+          Visăm la o lume în care oamenii și animalele conviețuiesc în armonie,
+          unde fiecare animal fără stăpân primește atenția și îngrijirea de care
+          are nevoie. Ne dorim să transformăm fiecare oraș, cartier și zonă
+          rezidențială într-un loc sigur pentru toate ființele.
+        </p>
+
+        <h3>Valorile noastre:</h3>
+        <ul class="how-it-works">
+          <li>
+            Empatie și respect: Tratăm fiecare caz cu cea mai mare empatie și
+            respect, atât pentru animale, cât și pentru comunitatea umană.
+          </li>
+          <li>
+            Transparență și responsabilitate: Ne angajăm să oferim o platformă
+            transparentă și responsabilă, unde progresul și rezultatele sunt
+            comunicate deschis.
+          </li>
+          <li>
+            Inovare și colaborare: Credem în puterea tehnologiei și a inovării
+            pentru a aduce schimbări pozitive și încurajăm colaborarea între
+            toți actorii implicați.
+          </li>
+        </ul>
+
+        <p>
+          Împreună, formăm o comunitate puternică, unită de dorința de a face o
+          diferență reală în viețile animalelor și în societatea noastră.
+          Alătură-te nouă în această călătorie spre un viitor mai bun pentru
+          toți locuitorii planetei noastre.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Termeni și Condiții</a></li>
+          <li><a href="#">Politica de Confidențialitate</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/mostRecentReports.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user.role)
+        if (user.role === 'admin') {
+          const manageDropdownContent = document.querySelector(
+            '#manageDropdown .dropdown-content'
+          )
+
+          const manageUsers = document.createElement('a')
+          manageUsers.href = 'manageUsers.html'
+          manageUsers.textContent = 'Manage Users'
+
+          const manageReports = document.createElement('a')
+          manageReports.href = 'manageReports.html'
+          manageReports.textContent = 'Manage Reports'
+
+          manageDropdownContent.appendChild(manageUsers)
+          manageDropdownContent.appendChild(manageReports)
+
+          document.getElementById('manageDropdown').style.display = 'block'
+        }
+      })
+    </script>
+  </body>
+</html>

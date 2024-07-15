@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Inregistrare</h2>
+      <form id="signup-form">
+        <label for="last-name">Nume:</label>
+        <input type="text" id="last-name" name="lastName" required />
+
+        <label for="first-name">Prenume:</label>
+        <input type="text" id="first-name" name="firstName" required />
+
+        <label for="phone">Numar de telefon:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="county">Judet:</label>
+        <select id="county" name="county" required>
+          <option value="">Selecteaza judetul</option>
+          <option>Toate</option>
+          <option>Alba Iulia</option>
+          <option>Alexandria</option>
+          <option>Arad</option>
+          <option>Bacau</option>
+          <option>Baia Mare</option>
+          <option>Bistria</option>
+          <option>Botosani</option>
+          <option>Brasov</option>
+          <option>Braila</option>
+          <option>Bucuresti</option>
+          <option>Buzau</option>
+          <option>Calarasi</option>
+          <option>Cluj-Napoca</option>
+          <option>Constanta</option>
+          <option>Craiova</option>
+          <option>Deva</option>
+          <option>Drobeta-Turnu Severin</option>
+          <option>Focsani</option>
+          <option>Galati</option>
+          <option>Giurgiu</option>
+          <option>Hunedoara</option>
+          <option>Iasi</option>
+          <option>Miercurea Ciuc</option>
+          <option>Oradea</option>
+          <option>Piatra Neamt</option>
+          <option>Pitesti</option>
+          <option>Ploiesti</option>
+          <option>Râmnicu Vâlcea</option>
+          <option>Resita</option>
+          <option>Satu Mare</option>
+          <option>Sfântu Gheorghe</option>
+          <option>Sibiu</option>
+          <option>Slatina</option>
+          <option>Suceava</option>
+          <option>Târgoviste</option>
+          <option>Târgu Jiu</option>
+          <option>Târgu Mures</option>
+          <option>Timisoara</option>
+          <option>Tulcea</option>
+          <option>Vaslui</option>
+        </select>
+
+        <label for="address">Adresa (optional):</label>
+        <input type="text" id="address" name="address" />
+
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" name="email" required />
+
+        <label for="signup-password">Parola:</label>
+        <input type="password" id="signup-password" name="password" required />
+
+        <input type="submit" value="Inregistreaza-te" />
+      </form>
+      <div class="form-footer">
+        Ai deja un cont? <a href="login.html">Log In</a>
+      </div>
+      <div id="error-message" style="color: red; display: none"></div>
+    </div>
+
+    <script src="scripts/signup.js"></script>
+  </body>
+</html>

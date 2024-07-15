@@ -1,0 +1,94 @@
+
+html {
+    font-family: serif;
+    background-color: #cc4700fb;
+    font-size: 15px;
+  }
+  
+  body {
+    max-width: 21cm;
+    margin: auto;
+    line-height: 1.6;
+    font-weight: 300;
+    font-family: Georgia, serif;
+    padding-bottom: 2%; 
+  }
+  
+  header>h1 {
+    margin: 0;
+    font-size: 3em;
+    padding-top: 1em;
+    padding-left: 1.5em;
+    text-align: center;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 20px; /* Adaugă spațiu deasupra fiecărui titlu */
+    margin-bottom: 20px; /* Adaugă spațiu sub fiecare titlu */
+  }
+  
+  
+  h1,
+  h2,
+  h3 {
+    color: #000000
+  }
+  
+  h2 {
+    margin-top: 3em
+  }
+
+  img {
+    width: 50%;
+    height: 50%;
+  }
+  
+  h3 {
+    margin-top: 1em;
+    margin-left: 2em
+  }
+  
+  h4 {
+    font-weight: 300;
+    font-size: 1.2em;
+    -webkit-font-feature-settings: "c2sc";
+    font-feature-settings: "c2sc";
+    font-variant: small-caps;
+    margin: 2em 0 .5em
+  }
+  
+  #p_in_h2 {
+    margin-left: 1em;
+  }
+  #p_in_h3 {
+    margin-left: 3em;
+  }
+
+  #h2_in_h1 {
+    margin-left: 0.5em;
+    margin-top: 0em;
+  }
+
+.uml {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(48, 4, 103);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.imag {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.interface {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(24, 184, 202);
+    margin: 10px 0;
+}
+

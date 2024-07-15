@@ -1,0 +1,40 @@
+.container {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #fff;
+  background-color: #ff7f50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.rss-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.rss-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.rss-item p {
+  margin: 0 0 10px;
+}
+
+.rss-item a {
+  color: #ff7f50;
+  text-decoration: none;
+}
+
+.rss-item a:hover {
+  text-decoration: underline;
+}

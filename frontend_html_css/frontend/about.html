@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/icon.png" />
+    <title>Alerte Animale</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+  </head>
+
+  <body class="about-page">
+    <header class="top-nav">
+      <a href="index.html">
+        <img class="header-icon" src="./images/icon2.png" alt="FePa" />
+      </a>
+
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu" id="nav-menu">
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="rssFeed.html">RSS Feed</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Rapoarte</a>
+          <div class="dropdown-content">
+            <a href="report.html">Raporteaza un Animal</a>
+            <a href="view-reports.html">Vizualizeaza Rapoarte</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown manage-dropdown" style="display: none">
+          <a href="#" class="dropbtn">Manage</a>
+          <div class="dropdown-content">
+            <a href="manageUsers.html">Manage Users</a>
+            <a href="manageReports.html">Manage Reports</a>
+          </div>
+        </li>
+        <li class="user-authentication">
+          <span id="auth-placeholder">Autentificare</span>
+          <div id="login-dropdown-content" class="login-dropdown-content">
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Sign Up</a>
+            <a id="logout" href="#" style="display: none">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <script src="scripts/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user.role)
+        if (user.role === 'admin') {
+          const manageDropdownContent = document.querySelector(
+            '#manageDropdown .dropdown-content'
+          )
+
+          const manageUsers = document.createElement('a')
+          manageUsers.href = 'manageUsers.html'
+          manageUsers.textContent = 'Manage Users'
+
+          const manageReports = document.createElement('a')
+          manageReports.href = 'manageReports.html'
+          manageReports.textContent = 'Manage Reports'
+
+          manageDropdownContent.appendChild(manageUsers)
+          manageDropdownContent.appendChild(manageReports)
+
+          document.getElementById('manageDropdown').style.display = 'block'
+        }
+      })
+    </script>
+
+    <main>
+      <div class="head-image">
+        <img src="./images/aboutus.jpg" />
+      </div>
+
+      <div class="about-us">
+        <div class="about-us-image">
+          <img src="./images/about.jpg" />
+        </div>
+        <div class="about-us-content">
+          <section id="how-it-works">
+            <h3>Misiunea noastră:</h3>
+            <p>
+              Suntem o echipă dedicată bunăstării animalelor și siguranței
+              comunităților noastre. Misiunea noastră este de a oferi o punte de
+              legătură între animalele fără stăpân, comunitate și autoritățile
+              locale, facilitând raportarea rapidă și eficientă a cazurilor și
+              găsirea celor mai bune soluții pentru fiecare situație.
+            </p>
+
+            <h3>Viziunea noastră:</h3>
+            <p>
+              Visăm la o lume în care oamenii și animalele conviețuiesc în
+              armonie, unde fiecare animal fără stăpân primește atenția și
+              îngrijirea de care are nevoie. Ne dorim să transformăm fiecare
+              oraș, cartier și zonă rezidențială într-un loc sigur pentru toate
+              ființele.
+            </p>
+
+            <h3>Valorile noastre:</h3>
+            <ul class="how-it-works">
+              <li>
+                Empatie și respect: Tratăm fiecare caz cu cea mai mare empatie
+                și respect, atât pentru animale, cât și pentru comunitatea
+                umană.
+              </li>
+              <li>
+                Transparență și responsabilitate: Ne angajăm să oferim o
+                platformă transparentă și responsabilă, unde progresul și
+                rezultatele sunt comunicate deschis.
+              </li>
+              <li>
+                Inovare și colaborare: Credem în puterea tehnologiei și a
+                inovării pentru a aduce schimbări pozitive și încurajăm
+                colaborarea între toți actorii implicați.
+              </li>
+            </ul>
+
+            <p>
+              Împreună, formăm o comunitate puternică, unită de dorința de a
+              face o diferență reală în viețile animalelor și în societatea
+              noastră. Alătură-te nouă în această călătorie spre un viitor mai
+              bun pentru toți locuitorii planetei noastre.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Termeni și Condiții</a></li>
+          <li><a href="#">Politica de Confidențialitate</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

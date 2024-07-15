@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/icon.png" />
+    <title>Users Management</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/manageUsers.css" />
+  </head>
+  <body>
+    <header class="top-nav">
+      <a href="index.html">
+        <img class="header-icon" src="./images/icon2.png" alt="FePa" />
+      </a>
+
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu" id="nav-menu">
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="rssFeed.html">RSS Feed</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Rapoarte</a>
+          <div class="dropdown-content">
+            <a href="report.html">Raporteaza un Animal</a>
+            <a href="view-reports.html">Vizualizeaza Rapoarte</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown manage-dropdown" style="display: none">
+          <a href="#" class="dropbtn">Manage</a>
+          <div class="dropdown-content">
+            <a href="manageUsers.html">Manage Users</a>
+            <a href="manageReports.html">Manage Reports</a>
+          </div>
+        </li>
+        <li class="user-authentication">
+          <span id="auth-placeholder">Autentificare</span>
+          <div id="login-dropdown-content" class="login-dropdown-content">
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Sign Up</a>
+            <a id="logout" href="#" style="display: none">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <script src="scripts/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user.role)
+        if (user.role === 'admin') {
+          const manageDropdownContent = document.querySelector(
+            '#manageDropdown .dropdown-content'
+          )
+
+          const manageUsers = document.createElement('a')
+          manageUsers.href = 'manageUsers.html'
+          manageUsers.textContent = 'Manage Users'
+
+          const manageReports = document.createElement('a')
+          manageReports.href = 'manageReports.html'
+          manageReports.textContent = 'Manage Reports'
+
+          manageDropdownContent.appendChild(manageUsers)
+          manageDropdownContent.appendChild(manageReports)
+
+          document.getElementById('manageDropdown').style.display = 'block'
+        }
+      })
+    </script>
+    <div id="editUserModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+          <input type="hidden" id="editUserId" name="id" />
+          <div class="form-group">
+            <label for="editUserName">Nume:</label>
+            <input type="text" id="editUserName" name="nume" required />
+          </div>
+          <div class="form-group">
+            <label for="editUserPrenume">Prenume:</label>
+            <input type="text" id="editUserPrenume" name="prenume" required />
+          </div>
+          <div class="form-group">
+            <label for="editUserEmail">Email:</label>
+            <input type="email" id="editUserEmail" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="editUserTelefon">Telefon:</label>
+            <input type="text" id="editUserTelefon" name="telefon" required />
+          </div>
+          <div class="form-group">
+            <label for="editUserJudet">Judet:</label>
+            <input type="text" id="editUserJudet" name="judet" required />
+          </div>
+          <div class="form-group">
+            <label for="editUserAdresa">Adresa:</label>
+            <input type="text" id="editUserAdresa" name="adresa" required />
+          </div>
+          <div class="form-group">
+            <label for="editUserRole">Role:</label>
+            <select id="editUserRole" name="role" required>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </div>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <main>
+      <div class="container">
+        <h2>Manage Users</h2>
+        <table id="users-table" class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Prenume</th>
+              <th>Email</th>
+              <th>Telefon</th>
+              <th>Judet</th>
+              <th>Adresa</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- User rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Termeni și Condiții</a></li>
+          <li><a href="#">Politica de Confidențialitate</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/manageUsers.js"></script>
+  </body>
+</html>

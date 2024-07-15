@@ -1,0 +1,78 @@
+.about-us {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 256px;
+}
+
+.about-us-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-us-content {
+    flex: 1;
+    font-weight: bold;
+    color: #000000
+}
+
+.about-us img{
+    transform: scale(1.0);
+    transform-origin: top left;
+}
+
+main {
+    overflow-x: hidden;
+}
+
+
+.head-image {
+    margin-top: -80px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    margin-bottom: 48px;
+}
+
+.head-image img {
+    width: -webkit-fill-available;
+}
+
+
+@media (max-width: 700px) {
+    .about-us {
+        flex-direction: column-reverse;
+    }
+
+    .about-us img {
+        width: -webkit-fill-available;
+    }
+}
+.about-page {
+    background-image: url('../images/orange.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+
+
+
+
+#how-it-works {
+    width: 80%;
+    margin: auto;
+    text-align: start;
+}
+
+#how-it-works ul,p {
+    max-width: 1400px;
+}
+
+#how-it-works li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}

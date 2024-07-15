@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/icon.png" />
+    <title>Alerte Animale</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/report.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+      #map {
+        height: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="top-nav">
+      <a href="index.html">
+        <img class="header-icon" src="./images/icon2.png" alt="FePa" />
+      </a>
+
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu" id="nav-menu">
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="rssFeed.html">RSS Feed</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Rapoarte</a>
+          <div class="dropdown-content">
+            <a href="report.html">Raporteaza un Animal</a>
+            <a href="view-reports.html">Vizualizeaza Rapoarte</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown manage-dropdown" style="display: none">
+          <a href="#" class="dropbtn">Manage</a>
+          <div class="dropdown-content">
+            <a href="manageUsers.html">Manage Users</a>
+            <a href="manageReports.html">Manage Reports</a>
+          </div>
+        </li>
+        <li class="user-authentication">
+          <span id="auth-placeholder">Autentificare</span>
+          <div id="login-dropdown-content" class="login-dropdown-content">
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Sign Up</a>
+            <a id="logout" href="#" style="display: none">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <script src="scripts/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user.role)
+        if (user.role === 'admin') {
+          const manageDropdownContent = document.querySelector(
+            '#manageDropdown .dropdown-content'
+          )
+
+          const manageUsers = document.createElement('a')
+          manageUsers.href = 'manageUsers.html'
+          manageUsers.textContent = 'Manage Users'
+
+          const manageReports = document.createElement('a')
+          manageReports.href = 'manageReports.html'
+          manageReports.textContent = 'Manage Reports'
+
+          manageDropdownContent.appendChild(manageUsers)
+          manageDropdownContent.appendChild(manageReports)
+
+          document.getElementById('manageDropdown').style.display = 'block'
+        }
+      })
+    </script>
+
+    <main>
+      <div class="container">
+        <h2>Raportează un animal</h2>
+        <form id="report-form">
+          <div class="form-group">
+            <label for="species" class="form-label">Specia animalului:</label>
+            <select class="form-control" id="species" name="species" required>
+              <option value="">Selectează specia</option>
+              <option value="Ciobănesc German">Ciobănesc German</option>
+              <option value="Husky">Husky</option>
+              <option value="Golden Retriever">Golden Retriever</option>
+              <option value="Bulldog Englez">Bulldog Englez</option>
+              <option value="Beagle">Beagle</option>
+              <option value="Pudel">Pudel</option>
+              <option value="Rottweiler">Rottweiler</option>
+              <option value="Boxer">Boxer</option>
+              <option value="Teckel">Teckel</option>
+              <option value="Dogo Argentino">Dogo Argentino</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="reporterName" class="form-label">Numele tău:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="reporterName"
+              name="reporterName"
+            />
+          </div>
+
+          <div>
+            <label for="reporterEmail" class="form-label"
+              >Adresa ta de email:</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="reporterEmail"
+              name="reporterEmail"
+            />
+          </div>
+
+          <div>
+            <label for="reporterPhone" class="form-label"
+              >Numărul tău de telefon:</label
+            >
+            <input
+              type="tel"
+              class="form-control"
+              id="reporterPhone"
+              name="reporterPhone"
+            />
+          </div>
+
+          <div>
+            <label for="map" class="form-label">Selectează locația:</label>
+            <div id="map"></div>
+          </div>
+
+          <input type="hidden" id="latitude" name="latitude" />
+          <input type="hidden" id="longitude" name="longitude" />
+
+          <div>
+            <label for="date" class="form-label">Data observării:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              name="date"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="time" class="form-label">Ora observării:</label>
+            <input
+              type="time"
+              class="form-control"
+              id="time"
+              name="time"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="description" class="form-label"
+              >Descrierea situației:</label
+            >
+            <textarea
+              class="form-control"
+              id="description"
+              name="description"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="dangerLevel">Grad de pericol:</label>
+            <select
+              class="form-control"
+              id="dangerLevel"
+              name="dangerLevel"
+              required
+            >
+              <option value="Ridicat">Ridicat</option>
+              <option value="Mediu">Mediu</option>
+              <option value="Mic">Mic</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reportType">Tip de raport:</label>
+            <select
+              class="form-control"
+              id="reportType"
+              name="reportType"
+              required
+            >
+              <option value="Infiat">Infiat</option>
+              <option value="Dresat">Dresat</option>
+              <option value="Instiintare">Instiintare</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="photo" class="form-label"
+              >Încărcare fotografie (opțional):</label
+            >
+            <input class="form-control" type="file" id="photo" name="photo" />
+          </div>
+
+          <button type="button" onclick="submitReport()" class="btn-primary">
+            Trimite raportul
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Termeni și Condiții</a></li>
+          <li><a href="#">Politica de Confidențialitate</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      var map = L.map('map').setView([45.7489, 21.2087], 13)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; Contribuții OpenStreetMap',
+        maxZoom: 19,
+      }).addTo(map)
+
+      var marker = L.marker([45.7489, 21.2087], { draggable: true }).addTo(map)
+      marker.on('dragend', function (e) {
+        var coord = e.target.getLatLng()
+        console.log('New position:', coord.lat, coord.lng)
+        document.getElementById('latitude').value = coord.lat
+        document.getElementById('longitude').value = coord.lng
+      })
+      // Set default values for latitude and longitude
+      document.getElementById('latitude').value = 45.7489
+      document.getElementById('longitude').value = 21.2087
+
+      window.onload = function () {
+        var now = new Date()
+        var today = now.toISOString().split('T')[0]
+        var time = now.toTimeString().split(' ')[0]
+
+        document.getElementById('date').value = today
+        document.getElementById('time').value = time
+
+        var user = JSON.parse(localStorage.getItem('user'))
+        if (user) {
+          document.getElementById('reporterName').value = user.nume
+          document.getElementById('reporterEmail').value = user.email
+        }
+      }
+    </script>
+
+    <script>
+      function submitReport() {
+        const form = document.getElementById('report-form')
+        const formData = new FormData(form)
+        const token = localStorage.getItem('token')
+        fetch('http://localhost:3000/report', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        })
+          .then(response => response.json())
+          .then(data => {
+            alert(data.message)
+          })
+          .catch(error => {
+            console.error('Error:', error)
+            alert('A apărut o eroare la trimiterea raportului.')
+          })
+      }
+    </script>
+  </body>
+</html>

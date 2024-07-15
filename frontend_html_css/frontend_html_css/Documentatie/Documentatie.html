@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="schema:accessibilityFeature" content="alternativeText">
+        <meta property="schema:accessibilityFeature" content="MathML">
+        <meta property="schema:accessibilityHazard" content="noFlashingHazard">
+        <meta property="schema:copyrightHolder" content="Moglan Andreea-Elena & Cărpușor Flavia Andreea">
+        <title>FEPA</title>
+        <link rel="stylesheet" href="Documentatie.css">
+
+    </head>
+
+    <body prefix="schema: http://schema.org">
+        <article resource="#" typeof="schema:ScholarlyArticle">
+            <header>
+                <h1 property="schema:name">FEPA</h1>
+                <h2 id="h2_in_h1" role="doc-subtitle" property="schema:alternateName">
+                    Feral Presence Adviser
+                </h2>
+            </header>
+
+            <section class="content">
+                <OL>
+                    <LI><a href="#abstract">Rezumat</a></LI>
+                    <LI><a href="#introduction">Introducere</a></LI>
+                    <LI><a href="#descriere">Descriere generală</a></LI>
+                    <LI><a href="#interfata">Interfața aplicației</a></LI>
+                    <LI><a href="#caracteristici">Caracteristicile sistemului</a></LI>
+                    <LI><a href="#cerinte">Cerințe nefuncționale</a></LI>
+                    <LI><a href="#referinte">Referințe</a></LI>
+                </OL>
+            
+                <div role="contentinfo">
+                    <section typeof="sa:AuthorsList">
+                        <h2>Autori</h2>
+                        <ul>
+                            <li typeof="sa:ContributorRole" property="schema:author">
+                                <span typeof="schema:Person">
+                                <meta property="schema:familyName" content="Moglan">
+                                <meta property="schema:givenName" content="Andreea">
+                                <meta property="schema:additionalName" content="Elena">
+                                <span property="schema:name">Moglan Andreea Elena</span>
+                                </span>
+                            </li>
+                            <li typeof="sa:ContributorRole" property="schema:author">
+                                <span typeof="schema:Person">
+                                <meta property="schema:familyName" content="Cărpușor">
+                                <meta property="schema:givenName" content="Flavia">
+                                <meta property="schema:additionalName" content="Andreea">
+                                <span property="schema:name">Cărpușor Flavia Andreea</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+
+            <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+                <h2>1. Rezumat</h2>
+                <p id="p_in_h2">
+                    Proiectul FePA (Feral Presence Adviser) este o platformă web avansată dedicată monitorizării și gestionării prezenței animalelor fără stăpân în medii urbane și rurale. 
+                    Utilizatorii pot raporta observații ale acestor animale, furnizând detalii precum locația, fotografii, descrieri și informații suplimentare despre comportament sau probleme de sănătate.
+                     Platforma este dotată cu funcționalități de analiză și generare de statistici, oferind rapoarte detaliate despre frecvența și natura interacțiunilor animalelor cu mediul uman, pe zile, zone, și specii.
+                      Datele pot fi exportate în formate diverse, inclusiv HTML, CSV și PDF, iar fiecare raport nou este, de asemenea, disponibil ca flux de știri RSS. 
+                      Aceasta permite o diseminare rapidă și eficientă a informațiilor către toți utilizatorii interesați. FePA îmbină tehnologia modernă cu necesitatea de a gestiona și de a interacționa responsabil cu fauna urbană și rurală, asigurând o coexistență armonioasă și sigură între oameni și animalele fără stăpân.
+                </p>
+            </section>
+
+            <section id="introduction" role="doc-introduction">
+                <h2>2. Introducere</h2>
+                <h3> 2.1 Scopul aplicatiei </h3>
+                <p id="p_in_h3">
+                    Documentul de față definește cerințele software pentru FEPA (Feral Presence Adviser), un sistem avansat destinat monitorizării animalelor fără stăpân în medii urbane și rurale. Scopul principal al acestui sistem este de a furniza autorităților locale și organizațiilor de protecție a animalelor uneltele necesare pentru a gestiona eficient și uman populațiile de animale sălbatice, minimizând conflictele dintre acestea și comunitățile umane. 
+                </p>
+                <h3> 2.2 Convențiile documentului </h3>
+                <p id="p_in_h3">
+                    Acest document este redactat conform standardelor IEEE pentru specificații ale cerințelor software, 
+                    folosind terminologia specifică domeniului de monitorizare a faunei și gestionare a datelor. 
+                    Utilizăm fontul "Georgia" pentru textul descriptiv și "serif" pentru elementele de cod sau referințe cu dimensiune de 15px
+                     pentru a facilita citirea și pentru a distinge clar între diferitele tipuri de conținut.
+                     Informațiile critice sunt evidențiate prin <b>bold</b>. și italic. 
+                     Acolo unde este cazul, se utilizează buline pentru a organiza listele de funcții sau cerințe pentru claritate și ușurința de lectură.
+           
+                </p>
+                <h3>2.3 Publicul vizat și sugestii de lectură</h3>
+<p id="p_in_h3">
+    <ul role="list">
+        <li><strong>Dezvoltatorii și testerii</strong> vor găsi utile secțiunile care detalizează funcțiile sistemului și interfațele externe, precum și cerințele tehnice specifice.</li>
+        <li><strong>Managerii de proiect și decidenții</strong> pot consulta viziunea globală a produsului și obiectivele acestuia, pentru a înțelege cum FEPA se aliniază la strategiile organizaționale.</li>
+        <li><strong>Utilizatorii finali și organizațiile de protecție a animalelor</strong> vor aprecia descrierea funcționalităților orientate spre utilizator și impactul lor în îmbunătățirea bunăstării animalelor.</li>
+        <li><strong>Partenerii și colaboratorii externi</strong> ar trebui să revizuiască interfețele de comunicații și modalitățile de integrare cu alte sisteme.</li>
+        <li><strong>Investitorii și sponsorii</strong> pot înțelege beneficiile pe termen lung ale sistemului și potențialul său de a contribui la obiectivele de sustenabilitate și responsabilitate socială.</li>
+    </ul>
+</p>
+
+                
+                <h3><strong>2.4 Domeniul de aplicare al produsului</strong></h3>
+                <p id="p_in_h3">
+                    <strong>FEPA</strong> se angajează să creeze un sistem web intuitiv și adaptabil care să faciliteze raportarea și monitorizarea animalelor fără stăpân în diverse medii, inclusiv zone urbane și rezidențiale. Scopul este de a asigura că fiecare caz este gestionat cu eficiență și empatie, contribuind la o coexistență armonioasă între comunitățile umane și animale.
+                </p>
+                <ul role="list">
+                    <li><strong>Facilitarea raportării rapide</strong> a animalelor fără stăpân prin intermediul unei interfețe web prietenoase și accesibile.</li>
+                    <li><strong>Oferirea de statistici și analize detaliate</strong> privind situația animalelor, cu scopul de a informa comunitatea și a sprijini procesul de luare a deciziilor.</li>
+                    <li><strong>Generarea de rapoarte și vizualizări personalizate</strong>, care permit utilizatorilor să înțeleagă mai bine datele și să contribuie activ la soluții.</li>
+                    <li><strong>Exportul datelor și statisticilor</strong> în diverse formate cum ar fi CSV, PDF și HTML, ușor de partajat și utilizat în alte contexte.</li>
+                    <li><strong>Integrarea unui flux de știri RSS</strong>, asigurând că utilizatorii sunt permanent actualizați cu cele mai recente cazuri și evoluții legate de animalele fără stăpân.</li>
+                </ul>
+                
+
+                </p>
+            </section>
+
+
+
+
+            <section id="descriere">
+                <h2> 3. Descriere generală </h2>
+                <h3> 3.1 Perspectiva produsului </h3>
+                <p id="p_in_h3">
+                    Proiectul FEPA (Feral Presence Adviser) este dezvoltat ca un sistem interactiv și flexibil pentru monitorizarea și gestionarea animalelor fără stăpân în zone urbane și rurale, folosind tehnologii web moderne pentru a oferi utilizatorilor o experiență optimizată și interactivă.
+
+            
+                    <ul role="list">
+                        <h1>Frontend:</h1>
+                <p><strong> Tehnologii Utilizate:</strong> HTML și CSS.</p>
+                 <p><strong>Pagini:</strong></p>
+                <ul>
+                <li><strong code>'index.html'</strong code>: Pagina principală a site-ului, cu o interfață prietenoasă și acces la toate funcționalitățile principale.</li>
+                <li><strong code>'about.html'</strong code>: Oferă informații despre scopul și funcționarea sistemului FEPA.</li>
+                <li><strong code>'contact.html'</strong code>: Permite utilizatorilor să trimită întrebări sau să solicite suport.</li>
+                <li><strong code>'login.html'</strong code>, <strong code>'logout.html'</strong code>, <strong code>'signup.html'</strong code>: Gestionarea autentificării și a înregistrării utilizatorilor.</li>
+                <li><strong code>'report.html'</strong code>: Pagina pentru raportarea observațiilor noi.</li>
+                <li><strong code>'view-reports.html'</strong code>: Permite utilizatorilor să vizualizeze rapoartele existente.</li>
+                </ul>
+                <h1>CSS:</h1>
+                <p> Fiecare pagină HTML este stilizată pentru a reflecta funcționalitatea și conținutul său, cu fișiere CSS specifice cum ar fi <strong/code> 
+                     home.css, contact.css, report.css </strong> etc., asigurând o interfață coerentă și adaptivă.</p>
+
+
+
+
+                <h3> 3.2 Funcțiile produsului </h3>
+                <p id="p_in_h3">
+                    Sistemul FEPA oferă o gamă largă de funcții menite să îmbunătățească gestionarea și monitorizarea animalelor fără stăpân. Printre acestea se numără:
+                </p>
+                <ul role="list">
+                    <li><strong>Raportare Simplificată:</strong> Utilizatorii pot raporta ușor prezența animalelor fără stăpân, inclusiv locația, descrierea și fotografiile corespunzătoare.</li>
+                    <li><strong>Vizualizare Rapoarte:</strong> Există posibilitatea de a vedea toate rapoartele trimise, cu detalii complete despre fiecare caz în parte.</li>
+                    <li><strong>Gestionare Utilizatori</strong> Utilizatorii se pot înregistra, autentifica și gestiona propriile profiluri în cadrul sistemului.</li>
+                    <li><strong>Exportul datelor și statisticilor</strong> Datele pot fi exportate în formate diverse pentru analiză suplimentară sau arhivare.</li>
+                    <li><strong>Statistici și Analize</strong> Sistemul generează statistici complexe legate de datele colectate, oferind o perspectivă asupra tendințelor și situației curente.</li>
+                </ul>
+                    
+                </p>
+                <h3> 3.3 Funcționalitățile Paginilor Web </h3>
+                <p id="p_in_h3">
+                    <ul role="list">
+                       
+                
+                <li><strong code>'index.html'</strong code>: Oferă o vedere generală a sistemului, cu linkuri rapide către celelalte secțiuni ale site-ului..</li>
+                <li><strong code>'about.html'</strong code>: Descrie detaliat misiunea și viziunea proiectului FEPA.</li>
+                <li><strong code>'contact.html'</strong code>: Formular de contact pentru comunicare directă cu echipa de suport.</li>
+                <li><strong code>'login.html'</strong code>, <strong code>'logout.html'</strong code>, <strong code>'signup.html'</strong code>: Formulare pentru gestionarea accesului utilizatorilor.</li>
+                <li><strong code>'report.html'</strong code>:  Permite utilizatorilor să introducă noi rapoarte, inclusiv detalii despre observații.</li>
+                <li><strong code>'view-reports.html'</strong code>: Afisează rapoartele existente într-un format ușor de accesat și analizat.</li>
+                </ul>
+                </p>
+
+
+
+                <h3> 3.4 Clasele și caracteristicile utilizatorilor</h3>
+                <p id="p_in_h3"> 
+                    
+                    <ul role="list">
+                        <li><b>Administrația Publică</b>: Oficialii responsabili cu gestionarea animalelor fără stăpân vor folosi FEPA pentru a urmări și coordona activitățile de intervenție. .</li>
+
+                        <li><b>Cetățeni și Voluntari</b>: Indivizii care raportează observații despre animalele fără stăpân. Sunt interesați de o interfață simplă pentru introducerea rapidă a rapoartelor și de posibilitatea de a urmări rezoluția acestor cazuri.</li>
+
+                        <li><b>Organizații Non-Guvernamentale (ONG-uri)</b>: Grupuri care lucrează în domeniul protecției animalelor și care vor utiliza FEPA pentru a organiza campanii de conștientizare și pentru a mobiliza resurse și voluntari.</li>
+
+                        <li><b>Profesioniști în Sănătatea Animalelor</b>: Veterinari și experți în sănătatea animalelor care pot folosi sistemul pentru a urmări incidentele de sănătate publică legate de animalele fără stăpân și pentru a coordona acțiuni de prevenție și tratament.</li>
+                    </ul>
+                </p>
+
+
+
+                <h3> 3.5 Documentația utilizatorului </h3>
+                <p id="p_in_h3">
+                    Pagina principală va fi afișată, cu informatii referitoare animale fara stapan, statistici și înregistrare.
+                    Pentru a accesa funcționalitățile complete ale site-ului, utilizatorul va trebui să se înregistreze.
+                    În acest sens, utilizatorul va selecta butonul de autentificare și va completa formularul cu informațiile necesare.
+                    După finalizarea înregistrării, utilizatorul putea accesa toate funcționalitățile site-ului: 
+                    <ul role="list">
+                        <li> <strong> Raportări: </strong> În această secțiune, puteți raporta observațiile despre animalele fără stăpân, atașând fotografii și descrieri detaliate.</li>
+                        <li> <strong> Rapoarte Vizualizate: </strong> Aici puteți vizualiza toate rapoartele trimise de utilizatori, cu posibilitatea de a filtra informațiile în funcție de specie, locație sau data raportării.</li>
+                        <li><strong> Suport și Asistență: </strong> Dacă întâmpinați dificultăți sau aveți întrebări, secțiunea Contact vă stă la dispoziție pentru a lua legătura cu echipa noastră de suport</li>
+                        <li> <strong> Statistici: </strong> Secțiunea oferă acces la analize și grafice care prezintă tendințele și distribuția observațiilor în diferite perioade și locații.</li>
+                    </ul>
+                </p>
+            </section>
+            
+
+
+
+
+
+            <section id="interfata">
+                <h2> 4. Interfața aplicației </h2>
+                <h3> 4.1 Interfața cu utilizatorul </h3>
+                <p id="p_in_h3">
+                    Aplicația FEPA prezintă o interfață prietenoasă și intuitivă, concepută pentru a facilita interacțiunea utilizatorilor cu sistemul. Pagina principală oferă o imagine de ansamblu a funcționalităților cheie, permisând utilizatorilor să navigheze ușor către activitățile dorite.
+                    <ul role="list">
+                        <li>Pagina "<b>FEPA</b>"</li>
+                        <img class="interface" src="home.png" typeof="sa:image" />
+                        În această secțiune este prezentată o descriere succintă a paginii înainte ca utilizatorul să se autentifice, oferind, de asemenea, un ghid de folosință. De asemenea, se pot viziona cele mai recente rapoarte prin intermediul unui "scrolling carousel", folosind fluxul RSS. Header-ul reprezintă o modalitate simplă de a face tranziția între pagini, fiind accesibil oriunde rapid, ușor și intuitiv.
+
+                        
+                        <li>Pagina "<b>Despre</b>"</li>
+                        <img class="interface" src="about.png" typeof="sa:image" />
+                        Este dedicată prezentării misiunii, viziunii și valorilor organizației. Aici, utilizatorii pot găsi informații esențiale despre obiectivele FEPA și modul în care contribuie la comunitate.
+                            
+                            
+
+                      
+                        
+                        <li>Pagina "<b>Raportează un animal</b>"</li>
+                        <img class="interface" src="raport.png" typeof="sa:image" />
+                        Această pagină este esențială pentru funcționalitatea sistemului FEPA, permițând utilizatorilor să raporteze observații legate de animalele fără stăpân. Interfața include câmpuri pentru introducerea datelor și informațiilor necesare raportării.
+                        
+                        <ul role="list">
+                            <li>Harta Interactivă: O hartă permite utilizatorilor să selecteze sau să indice locația precisă unde a fost observat animalul. Funcționalitatea de zoom și navigare ajută la stabilirea coordonatelor exacte.</li>
+                            <li>Câmp de Descriere: Un spațiu larg este destinat descrierii situației, unde utilizatorii pot oferi detalii suplimentare despre comportamentul animalului sau alte observații relevante</li>
+                            <li>Încărcare Fotografie: Opțiunea de a încărca fotografii permite atașarea de dovezi vizuale care susțin raportul.</li>
+                            <li> Câmpuri de Introducere a Datelor: Utilizatorii pot completa detalii precum: specia animalului, numele si detaliile de contact ale raportului.</li>
+                        </ul>
+                        
+                        <li>Pagina "<b>Vizualizare rapoarte</b>"</li>
+                        <img class="interface" src="view raport.png" typeof="sa:image" />
+
+                        Pe această pagină se pot descărca statisticile în format CSV, PDF și HTML, completând un formular care filtrează statisticile după specia animalelor, statut, locație și nivel de pericol. Această abordare de vizualizare a statisticilor a fost aleasă pentru a ajuta utilizatorii să găsească rapid și ușor informațiile relevante pentru nevoile lor.
+
+                        <li>Pagina "<b>Autentificare</b>"</li>
+                        <img class="interface" src="autentificare.png" typeof="sa:image" />
+                        Această secțiune include un meniu dropdown care oferă linkuri către paginile: "Log In", "Sign In" și "Log Out", unde se găsesc formularele specifice. Alegerea unui dropdown a fost motivată de dorința de a include mai multe opțiuni într-un spațiu compact. Folosirea unui meniu dropdown poate facilita navigarea pe site și poate oferi o experiență mai intuitivă pentru utilizatori.
+                </p>
+
+
+
+                <h3> 4.2 Interfața hardware </h3>
+                <p id="p_in_h3">
+                    Următoarele tipuri de dispozitive vor fi acceptate de proiectul FEPA:
+                    <ul role="list">
+                        <li><b>Laptop-uri și desktop-uri</b> care pot rula un browser web și au acces la internet.</li>
+                        <li><b>Tablete și telefoane mobile</b> care rulează un sistem de operare (cum ar fi iOS sau Android) și pot accesa internetul prin intermediul unui browser web.</li>
+                    </ul>
+
+
+                    Interacțiunile dintre software și hardware:
+                    <ul role="list">
+                        <li><b>Interacțiunea dintre utilizator și aplicație</b> se realizează prin intermediul unui browser web, care este software-ul utilizatorului.</li>
+                        <li>Utilizatorul poate interacționa cu aplicația prin intermediul mouse-ului și tastaturii, în cazul laptop-urilor și desktop-urilor, sau prin
+                            intermediul ecranului tactil, în cazul tabletelor și telefoanelor mobile.</li>
+                        <li>Datele sunt preluate și afișate în interfața aplicației web, care este o interfață software.</li>
+                    </ul>
+                    Protocoale de comunicare:
+                    <ul role="list">
+                        <li>Aplicația utilizează protocoalul de comunicare HTTP, pentru a asigura securitatea și integritatea comunicării dintre client și server.</li>
+                        <li>Interacțiunea dintre client și server are loc prin intermediul API-ului dezvoltat intern.</li>
+                    </ul>
+                </p>
+
+
+
+                <h3> 4.3 Interfața software </h3>
+                <p id="p_in_h3">
+                    Interfețele software ale proiectului sunt:
+                    <ul role="list">
+                        <li><b>API REST/GraphQL </b>: Acest API va fi dezvoltat pentru a manipula datele despre animalele raportate, utilizatori și rapoartele generate. Va include endpoint-uri pentru adăugarea, actualizarea, ștergerea și preluarea informațiilor despre animale, utilizatori și evenimentele raportate, utilizând verbe HTTP adecvate și schema de date clar definită.</li>
+
+                        <li><b>API-ul REST/GraphQL</b>: Acesta va fi folosit pentru a prelua și controla datele referitoare la redarea 
+                            știrilor privitoare la fiecare nominalizat în parte la SAG Awards. Acesta va avea definiții clare pentru 
+                            endpoint-uri, verbe HTTP și tipuri de date acceptate și returnate.</li>
+
+                        <li><b>API pentru interacțiunea cu servicii externe de hărți și localizare</b>: Acest API va interacționa cu servicii externe, cum ar fi Leaflet, pentru a gestiona funcționalitățile de hărți necesare pentru a marca locațiile animalelor raportate. Acesta va prelua coordonatele de pe hărți și le va integra în rapoartele despre animale.</li>
+
+                        <li><b>Baza de date pentru datele utilizatorilor</b>: Acesta va fi folosită pentru stocarea datelor utilizatorilor, 
+                            cum ar fi informațiile de autentificare incluzând detaliile animalelor, utilizatorilor, rapoartelor și interacțiunilor. Această interfață software va implica conexiunea 
+                            cu o bază de date, definirea schemelor și operații CRUD.</li>
+
+                        <li><b>Sistemele de operare și bibliotecile utilizate</b>: Acestea vor fi folosite pentru a asigura funcționarea 
+                            corectă a aplicației pe diferite platforme. De exemplu Node.js va fi folosit pentru a implementa serverul web.
+
+                        <li><b>Protocoale de comunicare</b>: Utilizarea HTTPS pentru a asigura comunicațiile între client, server și baza de date. Acest lucru va garanta că toate datele transmise sunt securizate și că interacțiunea cu API-ul este protejată împotriva atacurilor externe.</li>
+                    </ul>
+                </p>
+
+
+
+
+                <h3> 4.4 Interfața de comunicații </h3>
+                <p id="p_in_h3">
+                    Interfața de comunicare asociată proiectului include o serie de funcții de comunicare, cum ar fi:
+                    <ul role="list">
+                        <li>comunicare prin email, pentru trimiterea de notificări și mesaje</li>
+                        <li>comunicare prin browsere web, pentru accesarea și interacționarea cu interfața utilizatorului</li>
+                    
+                        <li>utilizarea formularelor pentru a colecta și procesa datele introduse de utilizator.</li>
+                    </ul>
+                    Standardul de comunicare utilizat pentru accesarea datelor este HTTP, prin intermediul căruia se trimit cereri și se primesc răspunsuri de la serverul web.
+                    În plus, se vor implementa mecanisme de securitate suplimentare, cum ar fi autentificarea și autorizarea utilizatorilor, pentru a proteja datele personale și a preveni accesul neautorizat la sistem.
+                </p>
+            </section>
+
+
+
+
+
+            <section id="caracteristici">
+                <h2> 5. Caracteristicile sistemului </h2>
+                <p id="p_in_h2">
+                    <ul role="list">
+                        <li>Vizualizarea și analiza datelor despre animalele fără stăpân.</li>
+                        <li>Redarea știrilor despre observații prin Fluxuri RSS.</li>
+                        <li>Înregistrarea de noi utilizatori prin intermediul unei interfețe de înregistrare.</li>
+                        <li>Încărcarea și descărcarea fișierelor de date în format CSV.</li>
+
+                        <li>Sincronizarea cu API-uri externe.</li>
+                        <li>Afișarea statisticilor în timp real.</li>
+                    </ul>
+                </p>
+            </section>
+
+
+
+
+
+            <section id="cerinte">
+                <h2> 6. Cerințe nefuncționale </h2>
+                <p id="p_in_h2">
+                    <ul role="list">
+                        <li>Performanță: sistemul trebuie să fie capabil să ofere o experiență rapidă pentru utilizatori, chiar și în cazul în care baza de date se va mări.</li>
+                        <li>Securitate: Implementare de protocoale de securitate moderne, criptare a datelor și conformitate cu GDPR.</li>
+                        <li>Scalabilitate: Capacitatea de a gestiona creșterea volumului de date și a numărului de utilizatori fără a afecta performanța.</li>
+                        <li>Compatibilitate: Funcționare optimă pe diverse browsere și dispozitive mobile.</li>
+                        <li>Usabilitate: Interfață intuitivă, accesibilă pentru toate categoriile de utilizatori, cu suport și documentație ușor accesibile</li>
+                        <li>Mentenabilitate: Cod sursă bine documentat și ușor de întreținut pentru actualizări eficiente și mentenanță pe termen lung.</li>
+                    </ul>
+                </p>
+            </section>
+
+            <section id="referinte" role="doc-bibliography">
+                <h2> 7. Referințe </h2>
+                <div role="list"> </div>
+                <li typeof="schema:WebPage" resource="https://w3c.github.io/scholarly-html/" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://w3c.github.io/scholarly-html/">Formatul ScholarlyHTML</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Tzviya</span>
+                        <span property="schema:familyName">Siegman</span>
+                    </span>
+                    &amp;
+                    <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Robin</span>
+                        <span property="schema:familyName">Berjon</span>
+                    </span>
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">07 Apr 2024</time>).
+                    </span>
+                </li>
+
+                <li typeof="schema:WebPage" resource="https://github.com/rick4470/IEEE-SRS-Tempate#readme" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://github.com/rick4470/IEEE-SRS-Tempate#readme">IEEE System Requirements Specification Template</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName"><a href="https://github.com/rick4470">rick4470</a></span>
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">07 Apr 2024</time>).
+                    </span>
+                </li>
+
+
+
+                <li typeof="schema:WebPage" resource="https://labs.cs.upt.ro/labs/so/html/so1.html" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://labs.cs.upt.ro/labs/so/html/so1.html">Interfete</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Dan</span>
+                        <span property="schema:familyName">Cosma</span>
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">07 Apr 2024</time>).
+                    </span>
+                </li>
+
+            
+                <li typeof="schema:WebPage" resource="https://tehnologii-web.vercel.app/" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://tehnologii-web.vercel.app/">Pagina laborator</a>
+                </li>
+
+                <li typeof="schema:WebPage" resource="https://www.w3schools.com/html/" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://www.w3schools.com/html/">HTML Tutorial</a>
+                </li>
+                
+                <li typeof="schema:WebPage" resource="   https://www.w3schools.com/css/" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href=" https://www.w3schools.com/css/">CSS Tutorial</a>
+                    
+                </li>
+
+            </section>
+            <footer>
+            </footer>
+        </article>
+    </body>
+</html>

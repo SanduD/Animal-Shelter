@@ -1,0 +1,269 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header,
+footer {
+    background-color: #007197;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    text-align: center;
+    min-height: 100vh;
+    top: -120px;
+    position: relative;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.home-section {
+    min-height: 300px;
+}
+
+.home-container {
+    margin: auto;
+}
+
+.stylish-section {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-height: 450px;
+}
+
+.stylish-section h2 {
+    color: #333;
+}
+
+.stylish-section p {
+    margin: 10px 0;
+}
+
+.section-panel {
+    min-height: 720px;
+    background-image: url("../images/panel.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+.section-description {
+    width: 40%;
+    margin-right: 10%;
+    text-align: start;
+}
+
+h1 {
+    margin-top: 72px;
+    font-size: 48px;
+    letter-spacing: -1.2px;
+    line-height: 48px;
+    margin-bottom: 24px;
+}
+
+.section-description p {
+    color: #333;
+}
+
+.button {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #555;
+}
+
+
+
+.reported-animals-section {
+    margin-top: 64px;
+}
+
+.reported-animals-section h1 {
+    font-size: 48px;
+    letter-spacing: -1.2px;
+    line-height: 48px;
+    margin-bottom: 24px;
+}
+
+.carousel-container {
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    animation: scroll 60s linear infinite;
+}
+
+.carousel img {
+    margin: 0 12px;
+    border-radius: 12px;
+}
+
+.carousel img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+@media (max-width: 700px) {
+    .section-panel {
+        background-image: url("../images/panel_mobile.png");
+        min-height: unset;
+        height: 100svh;
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-description {
+        background-color: rgb(255, 255, 255, 0.8);
+        width: auto;
+        padding: 0 48px;
+        margin-right: unset;
+    }
+
+    .section-description h1 {
+        font-size: 24px;
+        letter-spacing: -1.2px;
+        line-height: 24px;
+    }
+
+    .carousel img {
+        width: 100%;
+        margin: 0 4px;
+    }
+
+    .carousel {    
+        animation: scroll 40s linear infinite;
+        width: 4000%;
+    }
+}
+
+
+/* HOW IT WORKS */
+
+#how-it-works {
+    width: 80%;
+    margin: auto;
+    text-align: start;
+}
+
+#how-it-works ul,p {
+    max-width: 1400px;
+}
+
+#how-it-works li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+/* LAST REPORT */
+
+.last-report {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 72px;
+    background-color: #007197;
+    min-height: 400px;
+}
+
+.report-content {
+    display: flex;
+    align-items: center;
+}
+
+.last-report img {
+    width: auto;
+    height: 400px;
+    margin-right: 20px;
+}
+
+.mobile-image {
+    display: none;
+}
+
+.report-text {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.download-button {
+    margin: 24px 0;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .last-report {
+        flex-direction: column;
+    }
+
+
+    .last-report img {
+        margin-right: unset;
+    }
+
+    .desktop-image {
+        display: none;
+    }
+
+    .mobile-image {
+        display: block;
+    }
+
+}

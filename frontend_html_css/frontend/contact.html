@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/icon.png" />
+    <title>Alerte Animale</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
+
+  <body>
+    <header class="top-nav">
+      <a href="index.html">
+        <img class="header-icon" src="./images/icon2.png" alt="FePa" />
+      </a>
+
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu" id="nav-menu">
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="rssFeed.html">RSS Feed</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Rapoarte</a>
+          <div class="dropdown-content">
+            <a href="report.html">Raporteaza un Animal</a>
+            <a href="view-reports.html">Vizualizeaza Rapoarte</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown manage-dropdown" style="display: none">
+          <a href="#" class="dropbtn">Manage</a>
+          <div class="dropdown-content">
+            <a href="manageUsers.html">Manage Users</a>
+            <a href="manageReports.html">Manage Reports</a>
+          </div>
+        </li>
+        <li class="user-authentication">
+          <span id="auth-placeholder">Autentificare</span>
+          <div id="login-dropdown-content" class="login-dropdown-content">
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Sign Up</a>
+            <a id="logout" href="#" style="display: none">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <script src="scripts/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user.role)
+        if (user.role === 'admin') {
+          const manageDropdownContent = document.querySelector(
+            '#manageDropdown .dropdown-content'
+          )
+
+          const manageUsers = document.createElement('a')
+          manageUsers.href = 'manageUsers.html'
+          manageUsers.textContent = 'Manage Users'
+
+          const manageReports = document.createElement('a')
+          manageReports.href = 'manageReports.html'
+          manageReports.textContent = 'Manage Reports'
+
+          manageDropdownContent.appendChild(manageUsers)
+          manageDropdownContent.appendChild(manageReports)
+
+          document.getElementById('manageDropdown').style.display = 'block'
+        }
+      })
+    </script>
+    <main>
+      <div class="">
+        <div class="row contact-section">
+          <div class="contact-image">
+            <img src="./images/contact3.jpg" />
+            <a href="#contact-info" class="anchor-link"></a>
+          </div>
+          <div class="contact-info" id="contact-info">
+            <div class="grid-container">
+              <div class="grid-item scale-on-hover">
+                <img class="mobile-contact" src="./images/contact-book.png" />
+                <h1 class="headline-text">Contact Us</h1>
+                <p>
+                  Contactați-ne pentru o reclamatie.
+                  <br />
+                  Ajută sau te alătură echipei.
+                </p>
+              </div>
+              <div class="grid-item scale-on-hover">
+                <img src="./images/location-pin.png" />
+                <h1 class="headline-text">ADRESA</h1>
+                <p>
+                  Strada Veronica Micle, 130
+                  <br />
+                  Iasi
+                </p>
+              </div>
+              <div class="grid-item scale-on-hover">
+                <img src="./images/mail.png" />
+                <h1 class="headline-text">EMAIL</h1>
+                <p>
+                  hello@fepa.com
+                  <br />
+                  support@fepa.com
+                </p>
+              </div>
+              <div class="grid-item scale-on-hover">
+                <img src="./images/phone-call.png" />
+                <h1 class="headline-text">CALL US</h1>
+                <p>
+                  +40728432987
+                  <br />
+                  +40721647989
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Termeni și Condiții</a></li>
+          <li><a href="#">Politica de Confidențialitate</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
